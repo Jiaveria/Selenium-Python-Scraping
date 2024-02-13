@@ -1,6 +1,6 @@
 # New Zealand Migration Data Scraper
 
-Welcome to the New Zealand Migration Data Scraper repository! This project offer Python script that automate the process of extracting data from the New Zealand migration data explorer website. The website provides various data sets related to migration, including information about students, work visitors, and population statistics. Users can apply different filters and variables to customize the data sets and visualize the data through charts and tables. The scripts in this repository enable users to dynamically select filters, retrieve the desired data sets, and download them as CSV files.
+Welcome to the New Zealand Migration Data Scraper repository! This project offer Python script that automate the process of extracting data from the New Zealand migration data explorer website. The website provides various data sets related to migration, including information about students, work visitors, and population statistics. Users can apply different filters and variables to customize the data sets and visualize the data through charts and tables. The script in this repository enable users to dynamically select filters, retrieve the desired data sets, and download them as CSV files.
 
 ## Table of Contents
 
