@@ -18,7 +18,7 @@ This repository contains Python script that automate the process of extracting d
 
 - **Automated Data Extraction:** Dynamically apply filters and variables to retrieve customized data sets.
 - **Dynamic Selection:** Utilize Selenium to interact with the website's dashboard and select filters dynamically.
-- **CSV Data Export:** Download the extracted data sets as CSV files with a single click.
+- **CSV Data Export:** Download the extracted data sets as CSV files.
 
 ## Prerequisites
 
