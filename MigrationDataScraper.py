@@ -8,7 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 ###############################   DUMMY INPUTS ###################################
 
 dataset='S7_student_first_time'
-selection_list = ['Location','Institution Type','Nationality','Application Criteria']
+variable_list = ['Location','Institution Type','Nationality','Application Criteria']
 default_selection = False
 filters = [
     {
@@ -35,7 +35,7 @@ filters = [
 
 ################################ FUNCTION ###################################
 
-def MigrationDataScraper(dataset,selection_list,filters,default_selection):
+def MigrationDataScraper(dataset,variable_list,filters,default_selection):
 
     options=webdriver.ChromeOptions()
     options.add_experimental_option('detach',True)
@@ -56,11 +56,11 @@ def MigrationDataScraper(dataset,selection_list,filters,default_selection):
     div_element = driver.find_element(By.CLASS_NAME, 'list-group.inlist.inlist-multi')
     variables = div_element.find_elements(By.TAG_NAME, 'button')
 
-    if (default_selection and len(selection_list)<=3):  # Max 4 variables allowed
+    if (default_selection and len(variable_list)<=3):  # Max 4 variables allowed
         for variable in variables:
-            if(variable.get_attribute('value') in selection_list):
+            if(variable.get_attribute('value') in variable_list):
                 variable.click()
-    elif (len(selection_list)<=4 and not default_selection):
+    elif (len(variable_list)<=4 and not default_selection):
         for variable in variables:
             if(variable.get_attribute('class') == 'list-group-item list-group-item-selected'):
                 first_span = variable.find_element(By.XPATH, "./span[1]")  
@@ -68,7 +68,7 @@ def MigrationDataScraper(dataset,selection_list,filters,default_selection):
                 variable.click()
                 break
         for variable in variables:
-            if(variable.get_attribute('value') in selection_list):
+            if(variable.get_attribute('value') in variable_list):
                 variable.click()
 
     #Filters selection
@@ -145,6 +145,22 @@ def MigrationDataScraper(dataset,selection_list,filters,default_selection):
     download_btn.click()
 
 
-###################   FUNCTION CALL    ###################################
+###################   FUNCTION CALLS    ###################################
 
-MigrationDataScraper(dataset,selection_list,filters,default_selection)
+# USE CASE I: Select dataset S7 Student First Time-->Time Period Monthly --> 
+# Variable Application criteria, Nationality, Location & Institution type
+dataset_1='S7_student_first_time'
+variable_list_1 = ['Nationality','Location','Institution Type']
+default_selection_1 = True
+filters_1 = []
+#MigrationDataScraper(dataset_1,variable_list_1,filters_1,default_selection_1)
+
+
+
+# USE CASE II: Select dataset S1 Student Decisions--> Time Period Monthly-->
+# Variable Decision type, Nationality, Institution type & location
+dataset_2='S1_student_decisions'
+variable_list_2 = ['Nationality','Institution Type','Location']
+default_selection_2 = True
+filters_2 = []
+#MigrationDataScraper(dataset_2,variable_list_2,filters_2,default_selection_2)
